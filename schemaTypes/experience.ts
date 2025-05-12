@@ -17,6 +17,23 @@ export const experienceType = defineType({
       title: 'Company URL',
     }),
     defineField({
+      name: 'startDate',
+      type: 'date',
+      title: 'Start Date',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'endDate',
+      type: 'date',
+      title: 'End Date',
+    }),
+    defineField({
+      name: 'description',
+      type: 'text',
+      title: 'Description',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'location',
       type: 'string',
       title: 'Location',
@@ -89,8 +106,14 @@ export const positionType = defineType({
       name: 'description',
       type: 'array',
       title: 'Description',
-      of: [{type: 'descriptionItem'}], // <-- We'll define this next
+      of: [{type: 'descriptionItem'}],
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'technologies',
+      type: 'array',
+      title: 'Technologies',
+      of: [{type: 'string'}],
     }),
   ],
 })
